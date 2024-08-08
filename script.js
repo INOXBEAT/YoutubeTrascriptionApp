@@ -1,4 +1,3 @@
-type="text/javascript"
 var player;
 var subtitles = [];
 var subtitleElements = [];
@@ -95,6 +94,9 @@ document.getElementById('video-form').addEventListener('submit', function (e) {
 
         // Mostrar la transcripción completa
         displayFullTranscript();
+
+        // Habilitar la opción de descarga
+        enableDownloadOption();
     };
 
     reader.readAsText(file);
@@ -119,4 +121,17 @@ function displayFullTranscript() {
         fullTranscriptContainer.appendChild(p);
         subtitleElements.push(p);
     });
+}
+
+// Función para habilitar la opción de descarga
+function enableDownloadOption() {
+    var downloadButton = document.getElementById('download-button');
+    var transcriptContent = subtitles.map(subtitle => `${Math.floor(subtitle.time / 60)}:${('0' + subtitle.time % 60).slice(-2)} - ${subtitle.text}`).join('\n');
+
+    var blob = new Blob([transcriptContent], { type: 'text/plain' });
+    var url = URL.createObjectURL(blob);
+
+    downloadButton.href = url;
+    downloadButton.download = 'transcript.txt';
+    downloadButton.style.display = 'block';
 }

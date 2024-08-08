@@ -9,20 +9,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
     <!-- Contenedor del formulario y el video -->
     <div class="container">
         <h1>Video de YouTube con Subtítulos Dinámicos</h1>
-        
+
         <!-- Formulario para ingresar la URL del video y cargar el archivo de transcripción -->
         <div class="form-container">
             <form id="video-form">
                 <div class="mb-3">
                     <label for="videoUrl" class="form-label">URL del Video:</label>
-                    <input type="text" class="form-control" id="videoUrl" name="videoUrl" placeholder="Ingresa una URL de video de YOUTUBE" required>
+                    <input type="text" class="form-control" id="videoUrl" name="videoUrl"
+                        placeholder="Ingresa una URL de video de YOUTUBE" required>
                 </div>
                 <div class="mb-3">
                     <label for="fileInput" class="form-label">Archivo de Transcripción:</label>
@@ -37,11 +37,14 @@
             <div id="player"></div>
             <div id="full-transcript-container"></div>
         </div>
+
+        <!-- Botón de descarga -->
+        <div class="text-center mt-3">
+            <a id="download-button" class="btn btn-success" style="display: none;">Descargar Transcripción</a>
+        </div>
     </div>
 
     <script src="script.js"></script>
-
-    
 </body>
 
 </html>
